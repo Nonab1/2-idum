@@ -146,9 +146,10 @@ header ul li ul li ul{
     flex-direction: column;
 }
 .middle .director .img{
-    width: 30%;
+    width: 25%;
     height: 70%;
     margin: 10px;
+    user-select: none;
 }
 .middle .director .img img{
     width: 100%;
@@ -159,6 +160,9 @@ header ul li ul li ul{
 }
 /* director end */
 /* xodimlar start */
+h1{
+    text-align: center;
+}
 .middle .xodimlar{
     width: 80%;
     height: 350px;
@@ -170,11 +174,16 @@ header ul li ul li ul{
 .middle .xodimlar .xodim{
     width: 33%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 } 
 .middle .xodimlar .xodim .img{
     width: 70%;
     height: 70%;
     margin: 10px;
+    user-select: none;
 }
 .middle .xodimlar .xodim .img img{
     width: 100%;
