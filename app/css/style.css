@@ -96,6 +96,7 @@ header ul li ul li ul{
 .middle{
     width: 100%;
     height: auto;
+    font-family: "Roboto", sans-serif; 
 }
 /* splide start */
 .splide{
@@ -140,6 +141,7 @@ header ul li ul li ul{
     width: 80%;
     height: 350px;
     margin: auto;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -160,13 +162,15 @@ header ul li ul li ul{
 }
 /* director end */
 /* xodimlar start */
-h1{
+.xs{
     text-align: center;
+    margin-top: 20px;
 }
 .middle .xodimlar{
     width: 80%;
     height: 350px;
     margin: auto;
+    margin-bottom: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -190,6 +194,39 @@ h1{
     height: 100%;
 }
 /* xodimlar end */
+/* maktab start */
+.middle .maktab{
+    width: 90%;
+    height: 400px;
+    margin: auto;
+    margin-bottom: 50px;
+}
+.middle .maktab h2{
+    text-align: center;
+}
+.middle .maktab .haqida{
+    width: 100%;
+    height: 380px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.middle .maktab .haqida .img{
+    width: 45%;
+    height: 100%;
+}
+.middle .maktab .haqida .img img{
+    width: 100%;
+    height: 100%;
+}
+.middle .haqida h3{
+    font-size: 18px;
+    width: 45%;
+    height: 100%;
+    text-align: start;
+}
+/* maktab end */
 /* manxil start */
 h3{
     font-size: 30px;
@@ -205,6 +242,7 @@ footer{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    font-family: "Roboto", sans-serif; 
 }
 footer .logo{
     width: 15%;
