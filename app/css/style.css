@@ -230,6 +230,9 @@ footer ul li{
     justify-content: center;
     align-items: center;
 }
+footer ul li i{
+    margin-right: 4px;
+}
 footer ul li a{
     color: #f2f2f2;
 }
