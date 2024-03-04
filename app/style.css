@@ -146,8 +146,8 @@ header ul li ul li ul{
     flex-direction: column;
 }
 .middle .director .img{
-    width: 25%;
-    height: 70%;
+    width: 270px;
+    height: 280px;
     margin: 10px;
     user-select: none;
 }
@@ -180,8 +180,8 @@ h1{
     flex-direction: column;
 } 
 .middle .xodimlar .xodim .img{
-    width: 70%;
-    height: 70%;
+    width: 260px;
+    height: 250px;
     margin: 10px;
     user-select: none;
 }
@@ -214,11 +214,15 @@ footer .logo img{
 footer ul{
     font-size: 20px;
     color: #f2f2f2;
+    display: flex;
 }
 footer ul li{
-    list-style:initial;
     font-size: 20px;
     color: #f2f2f2;
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 footer ul li a{
     color: #f2f2f2;
