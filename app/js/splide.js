@@ -1,5 +1,5 @@
 var splide = new Splide( '.splide', {
-    type    : 'loop',
+    type: 'loop',
     speed: 2000,
     perPage: 1,
     autoplay: true,
