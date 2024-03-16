@@ -29,6 +29,7 @@ function style() {
     // .pipe(gulp.dest("app/"))
     .pipe(csso())
     .pipe(rename({
+        // basename: "",
         suffix: ".min",
     }))
     .pipe(sourcemaps.write('.'))
@@ -37,12 +38,18 @@ function style() {
 }
 
 
+//eskisi
+// gulp.task('watch', function () {
+//     watch('app/style.css', function () {
+//         gulp.src('app/style.css')
+//         .pipe(gulp.dest('app/'));
+//     });
+// });
+
+//yangisi
 
 gulp.task('watch', function () {
-    watch('app/style.css', function () {
-        gulp.src('app/style.css')
-        .pipe(gulp.dest('app/'));
-    });
+    watch('app/style.css', style);
 });
 
 
