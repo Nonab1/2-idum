@@ -21,6 +21,7 @@ header{
 header.fixed{
     position: fixed;
     transform: translateY(100px);
+    height: 100px;
 }
 header .logo{
     width: 30%;
