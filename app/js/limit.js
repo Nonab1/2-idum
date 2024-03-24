@@ -1,4 +1,4 @@
-var textElements = document.querySelectorAll('.text h3');
+var textElements = document.querySelectorAll('.card .text h3');
 textElements.forEach(function(element) {
     var text = element.textContent.trim();
     var words = text.split(' ');
@@ -7,7 +7,7 @@ textElements.forEach(function(element) {
         element.textContent = truncatedText;
     }
 });
-var textElements = document.querySelectorAll('.text p');
+var textElements = document.querySelectorAll('.card .text p');
 textElements.forEach(function(element) {
     var text = element.textContent.trim();
     var words = text.split(' ');

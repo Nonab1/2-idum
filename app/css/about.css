@@ -123,11 +123,13 @@ section .haqida{
 section .haqida .img{
     width: 45%;
     height: 90%;
+    overflow: hidden;
 }
 section .haqida .img img{
     width: 100%;
     height: 100%;
     border-radius: 20px;
+    object-fit: cover; 
 }
 section .haqida h3{
     width: 45%;
@@ -145,11 +147,13 @@ section .haqida h3 .about{
 section .haqida h3 .about .img{
     width: 100px;
     height: 100%;
+    overflow: hidden;
 }
 section .haqida h3 .about .img img{
     width: 100%;
     height: 100%;
     border-radius: 0;
+    object-fit: cover; 
 }
 section .haqida h3 .about h3{
     width: auto;
