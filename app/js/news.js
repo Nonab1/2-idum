@@ -30,6 +30,9 @@ var splide = new Splide( '.el', {
       992: {
         perPage: 2,
       },
+      1200: {
+        perPage: 3,
+      },
     }
   } );
 
