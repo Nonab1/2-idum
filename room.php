@@ -1,3 +1,13 @@
+<?php 
+
+$id = $_GET['id'];
+$pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+$sql = "SELECT * FROM rooms WHERE id=$id";
+$query = $pdo->prepare($sql);
+$query->execute();
+$item = $query->fetch(PDO::FETCH_ASSOC);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,14 +80,14 @@
      <!-- section start -->
      <section>
         <div class="img">
-            <img src="roomphotos/informatika.jpg" alt="">
+            <img src="roomphotos/<?= $item['img'] ?>" alt="">
         </div>
         <div class="text">       
             <h3>
-                48-xona
+                <?= $item['name'] ?>
             </h3>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit neque quos magnam non possimus in et     sunt itaque fugit doloribus cum blanditiis praesentium tenetur numquam, impedit quasi maxime    placeat? Corporis asperiores excepturi modi porro illo rem, optio quibusdam unde? Quod, delectus   consectetur modi ipsam possimus necessitatibus perferendis voluptatem adipisci cupiditate impedit     nisi aut veritatis expedita, unde illum molestias, facilis nihil fugiat pariatur quae aspernatur    eum? Mollitia quisquam voluptatum quo explicabo excepturi distinctio facilis autem dicta quas est  accusamus molestiae voluptatem sapiente omnis dolores adipisci natus esse ratione ducimus minima     quidem, sequi minus facere? Illo quam voluptatum sint eaque, dolorem quod.
+                <?= $item['text'] ?>
             </p>
             <a href="rooms.php">Orqaga</a>
         </div>

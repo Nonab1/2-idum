@@ -1,7 +1,7 @@
 <?php
 
-$pdo = new PDO("mysql:host=localhost;dbname=idea", 'root', 'root');
-$sql = "SELECT * FROM type";
+$pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+$sql = "SELECT * FROM subject";
 $query = $pdo->prepare($sql);
 $query->execute();
 $data = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -144,14 +144,13 @@ $index = 1;
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                    <a href="add_type.php" class="btn btn-primary">+ Add Types</a>
+                    <a href="add_subjects.php" class="btn btn-primary">+ Add Subject</a>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
                       <table class="table table-lg">
                         <thead>
                           <tr>
-                            <th>Id</th>
                             <th>Name</th>
                             <th>Action</th>
                           </tr>
@@ -159,11 +158,10 @@ $index = 1;
                         <tbody>
                           <?php foreach ($data as $item) : ?>
                             <tr>
-                              <td class="text-bold-500"><?= $index++ ?></td>
-                              <td><?= $item['type'] ?></td>
+                              <td><?= $item['subject'] ?></td>
                               <td>
-                                <a href="edit_type.php?id=<?= $item['id'] ?>" class="btn btn-success">Edit</a>
-                                <a href="delete_type.php?id=<?= $item['id'] ?>" onclick="return confirm('<?= $item['type'] ?> ni ochirmoqchimidiz?')" class="btn btn-danger">Delete</a>
+                                <a href="edit_subject.php?id=<?= $item['id'] ?>" class="btn btn-success">Edit</a>
+                                <a href="delete_subject.php?id=<?= $item['id'] ?>" onclick="return confirm('<?= $item['subject'] ?>ni ochirmoqchimidiz?')" class="btn btn-danger">Delete</a>
                               </td>
                             </tr>
                           <?php endforeach; ?>

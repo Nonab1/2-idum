@@ -13,6 +13,9 @@ $data = $query->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- box icon start -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- box icon end -->
     <!-- style start -->
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/news.css">
@@ -81,10 +84,15 @@ $data = $query->fetchAll(PDO::FETCH_ASSOC);
                     <h3><?= $item['header'] ?></h3>
                     <p><?= $item['text'] ?></p>
                     <p><?= $item['time'] ?></p>
-                    <a href="new.php">Batafsil</a>
+                    <a href="new.php?id=<?= $item['id'] ?>">Batafsil</a>
                 </div>
             </div>
             <?php endforeach; ?>
+        </div>
+        <div class="pagination-buttons">
+            <button id="prev-page"><i class='bx bxs-left-arrow-alt bx-sm' ></i></button>
+            <div id="page-numbers"></div>
+            <button id="next-page"><i class='bx bxs-right-arrow-alt bx-sm' ></i></button>
         </div>
     </section>
     <!-- yangiliklar end -->
@@ -103,5 +111,6 @@ $data = $query->fetchAll(PDO::FETCH_ASSOC);
 
     <script src="js/header.js"></script>
     <script src="js/limit.js"></script>
+    <script src="js/pagination.js"></script>
 </body>
 </html>

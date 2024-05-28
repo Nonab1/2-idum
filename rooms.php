@@ -1,3 +1,12 @@
+<?php 
+
+$pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+$sql = "SELECT * FROM rooms";
+$query = $pdo->prepare($sql);
+$query->execute();
+$data = $query->fetchAll(PDO::FETCH_ASSOC);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,79 +82,18 @@
     <!-- xonalar start -->
     <section id="pagination-section">
         <div class="pagination">
+            <?php foreach($data as $item): ?>
             <div class="card">
                     <div class="img">
-                        <img src="roomphotos/informatika.jpg" alt="">
+                        <img src="roomphotos/<?= $item['img'] ?>" alt="">
                     </div>
                     <div class="text">
-                        <h3>48-xona</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla repellendus ipsa soluta corporis architecto! Consequatur in doloremque placeat. Dolorem, laboriosam?</p>
-                        <a href="room.php">Batafsil</a>
+                        <h3><?= $item['name'] ?></h3>
+                        <p><?= $item['text'] ?></p>
+                        <a href="room.php?id=<?= $item['id'] ?>">Batafsil</a>
                     </div>
             </div>
-            <div class="card">
-                    <div class="img">
-                        <img src="roomphotos/informatika.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt?</h3>
-                        <a href="new.html">Batafsil</a>
-                    </div>
-            </div>
-            <div class="card">
-                    <div class="img">
-                        <img src="roomphotos/informatika.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt?</h3>
-                        <a href="new.html">Batafsil</a>
-                    </div>
-            </div>
-            <div class="card">
-                    <div class="img">
-                        <img src="roomphotos/informatika.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt?</h3>
-                        <a href="new.html">Batafsil</a>
-                    </div>
-            </div>
-            <div class="card">
-                    <div class="img">
-                        <img src="roomphotos/informatika.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt?</h3>
-                        <a href="new.html">Batafsil</a>
-                    </div>
-            </div>
-            <div class="card">
-                    <div class="img">
-                        <img src="roomphotos/informatika.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt?</h3>
-                        <a href="new.html">Batafsil</a>
-                    </div>
-            </div>
-            <div class="card">
-                    <div class="img">
-                        <img src="roomphotos/informatika.jpg" alt="">
-                    </div>
-                    <div class="text">
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt?</h3>
-                        <a href="new.html">Batafsil</a>
-                    </div>
-            </div>
-            <div class="card">
-                <div class="img">
-                    <img src="roomphotos/informatika.jpg" alt="">
-                </div>
-                <div class="text">
-                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt?</h3>
-                    <a href="new.html">Batafsil</a>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
         <div class="pagination-buttons">
             <button id="prev-page"><i class='bx bxs-left-arrow-alt bx-sm' ></i></button>

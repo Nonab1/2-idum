@@ -19,23 +19,19 @@ if (count($_POST) > 0) {
 
         $data = [
             'name' => strip_tags($_POST['name']),
-            'price' => strip_tags($_POST['price']),
-            'brend' => $_POST['brend'],
-            'type' => $_POST['type'],
-            'more' => strip_tags($_POST['more']),
+            'text' => strip_tags($_POST['text']),
+            'subject' => $_POST['subject'],
             'img' => $img_new_name,
-            'status' => 'in cart',
-            'cart' => 'no',
         ];
         echo "<pre>";
         print_r($data);
         echo "</pre>";
-        move_uploaded_file($img_tmp_name, "../productPhotos/" . $img_new_name);
-        $pdo = new PDO("mysql:host=localhost;dbname=idea", 'root', 'root');
-        $sql = "INSERT INTO products(name, price, brend, type, more, img, status, cart) VALUES (:name, :price, :brend, :type, :more, :img, :status, :cart)";
+        move_uploaded_file($img_tmp_name, "../teacherphotos/" . $img_new_name);
+        $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+        $sql = "INSERT INTO teacher(name, text, subject, img) VALUES (:name, :text, :subject, :img)";
         $query = $pdo->prepare($sql);
         $query->execute($data);
 
-        header('Location: products.php');
+        header('Location: teachers.php');
     } 
 }

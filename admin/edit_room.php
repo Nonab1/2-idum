@@ -1,8 +1,8 @@
 <?php
 $id = $_GET['id'];
 
-$pdo = new PDO("mysql:host=localhost;dbname=idea", 'root', 'root');
-$sql = "SELECT * FROM type WHERE id=$id";
+$pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+$sql = "SELECT * FROM rooms WHERE id=$id";
 $query = $pdo->prepare($sql);
 $query->execute();
 $item = $query->fetch(PDO::FETCH_ASSOC);
@@ -136,11 +136,11 @@ $item = $query->fetch(PDO::FETCH_ASSOC);
         </a>
       </header>
       <div class="page-heading">
-        <h3>Edit Product</h3>
+        <h3>Edit Room</h3>
       </div>
       <div class="page-content">
         <section class="row">
-          <div class="col-12 col-lg-6">
+          <div class="col-12 col-lg-12">
             <div class="row">
               <div class="col-12">
                 <div class="card">
@@ -154,13 +154,25 @@ $item = $query->fetch(PDO::FETCH_ASSOC);
                             </div>
                             <div class="card-content">
                               <div class="card-body">
-                                <form class="form" action="update_type.php" method="post" enctype="multipart/form-data">
+                                <form class="form" action="update_room.php" method="post" enctype="multipart/form-data">
                                   <div class="row">
                                     <div class="col-md-6 col-12">
                                       <div class="form-group">
                                         <input type="text" style="display: none;" name="id" value="<?= $item['id'] ?>">
-                                        <label for="type">Name</label>
-                                        <input type="text" id="type" name="type" value="<?= $item['type'] ?>" class="form-control" placeholder="Name" requared>
+                                        <label for="name">Name</label>
+                                        <input type="text" id="name" name="name" value="<?= $item['name'] ?>" class="form-control" placeholder="Header" requared>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                      <div class="form-group">
+                                        <label for="text">Text</label>
+                                        <input type="text" id="text" value="<?= $item['text'] ?>" name="text" class="form-control" placeholder="Text" requared>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                      <div class="form-group">
+                                        <label for="img" class="form-label">Img</label>
+                                        <input class="form-control" name="img" type="file" id="img" accept="image/*" requared>
                                       </div>
                                     </div>
                                     <div class="col-12 d-flex justify-content-end">

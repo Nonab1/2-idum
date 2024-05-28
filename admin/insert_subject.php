@@ -1,13 +1,13 @@
 <?php 
-$data = [
-    'type' => strip_tags($_POST['type']),
+ $item = [
+    'subject' => strip_tags($_POST['subject']),
 ];
 
-$pdo = new PDO("mysql:host=localhost;dbname=idea", 'root', 'root');
-$sql = "INSERT INTO type(type) VALUES (:type)";
+$pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+$sql = "INSERT INTO subject (subject) VALUES (:subject)";
 $query = $pdo->prepare($sql);
-$query->execute($data);
+$query->execute($item);
 
-header('Location: types.php');
+header('Location: subjects.php');
 
 ?>

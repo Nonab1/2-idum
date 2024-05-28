@@ -137,7 +137,7 @@ $item = $query->fetch(PDO::FETCH_ASSOC);
         </a>
       </header>
       <div class="page-heading">
-        <h3>Edit Product</h3>
+        <h3>Edit New</h3>
       </div>
       <div class="page-content">
         <section class="row">
@@ -181,7 +181,7 @@ $item = $query->fetch(PDO::FETCH_ASSOC);
                                       <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
                                     </div>
                                   </div>
-                              </form>
+                                </form>
                               </div>
                             </div>
                           </div>

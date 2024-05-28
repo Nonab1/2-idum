@@ -1,7 +1,7 @@
 <?php
 
-$pdo = new PDO("mysql:host=localhost;dbname=idea", 'root', 'root');
-$sql = "SELECT * FROM products";
+$pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+$sql = "SELECT * FROM rooms";
 $quary = $pdo->prepare($sql);
 $quary->execute();
 $data = $quary->fetchAll(PDO::FETCH_ASSOC);
@@ -150,10 +150,6 @@ $data = $quary->fetchAll(PDO::FETCH_ASSOC);
                         <thead>
                           <tr>
                             <th>Name</th>
-                            <th>Price</th>
-                            <th>Brend</th>
-                            <th>Type</th>
-                            <th>Status</th>
                             <th>Action</th>
                           </tr>
                         </thead>
@@ -161,13 +157,9 @@ $data = $quary->fetchAll(PDO::FETCH_ASSOC);
                           <?php foreach ($data as $item) : ?>
                             <tr>
                               <td class="text-bold-500"><?= $item['name'] ?></td>
-                              <td><?= $item['price'] ?> so`m</td>
-                              <td><?= $item['brend'] ?></td>
-                              <td class="text-bold-500"><?= $item['type'] ?></td>
-                              <td><?= $item['status'] ?></td>
                               <td>
-                                <a href="edit_product.php?id=<?= $item['id'] ?>" class="btn btn-success">Edit</a>
-                                <a href="delete_product.php?id=<?= $item['id'] ?>" onclick="return confirm('<?= $item['name'] ?>ni ochirmoqchimidiz?')" class="btn btn-danger">Delete</a>
+                                <a href="edit_room.php?id=<?= $item['id'] ?>" class="btn btn-success">Edit</a>
+                                <a href="delete_room.php?id=<?= $item['id'] ?>" onclick="return confirm('<?= $item['name'] ?>ni ochirmoqchimidiz?')" class="btn btn-danger">Delete</a>
                               </td>
                             </tr>
                           <?php endforeach; ?>

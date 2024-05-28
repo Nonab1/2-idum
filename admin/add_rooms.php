@@ -144,7 +144,7 @@
                             </div>
                             <div class="card-content">
                               <div class="card-body">
-                                <form class="form" action="insert_product.php" method="post" enctype="multipart/form-data">
+                                <form class="form" action="insert_room.php" method="post" enctype="multipart/form-data">
                                   <div class="row">
                                     <div class="col-md-6 col-12">
                                       <div class="form-group">
@@ -154,54 +154,14 @@
                                     </div>
                                     <div class="col-md-6 col-12">
                                       <div class="form-group">
-                                        <label for="price">Price</label>
-                                        <input type="number" id="price" min="0" name="price" class="form-control" placeholder="Price" requared>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                      <div class="form-group">
-                                        <label for="basicSelect">Brend</label>
-                                        <?php
-                                        $pdo = new PDO("mysql:host=localhost;dbname=idea", 'root', 'root');
-                                        $sql = "SELECT * FROM brend";
-                                        $query = $pdo->prepare($sql);
-                                        $query->execute();
-                                        $data = $query->fetchAll(PDO::FETCH_ASSOC);
-                                        ?>
-                                        <select name="brend" class="form-select" id="basicSelect">
-                                          <?php foreach ($data as $brend) : ?>
-                                            <option value="<?= $brend['brend'] ?>"><?= $brend['brend'] ?></option>
-                                          <?php endforeach; ?>
-                                        </select>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                      <div class="form-group">
-                                        <label>Type</label>
-                                        <?php
-                                        $pdo = new PDO("mysql:host=localhost;dbname=idea", 'root', 'root');
-                                        $sql = "SELECT * FROM type";
-                                        $query = $pdo->prepare($sql);
-                                        $query->execute();
-                                        $type = $query->fetchAll(PDO::FETCH_ASSOC);
-                                        ?>
-                                        <select name="type" class="form-select">
-                                          <?php foreach ($type as $item) : ?>
-                                            <option value="<?= $item['type'] ?>"><?= $item['type'] ?></option>
-                                          <?php endforeach; ?>
-                                        </select>
+                                        <label for="text">Text</label>
+                                        <input type="text" id="text" name="text" class="form-control" placeholder="Text" requared>
                                       </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                       <div class="form-group">
                                         <label for="img" class="form-label">Img</label>
                                         <input class="form-control" name="img" type="file" id="img" accept="image/*" requared>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                      <div class="form-group">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Ko'proq ma'lumot</label>
-                                        <textarea name="more" class="form-control" id="exampleFormControlTextarea1" rows="1" requared></textarea>
                                       </div>
                                     </div>
                                     <div class="col-12 d-flex justify-content-end">

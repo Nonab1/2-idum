@@ -2,21 +2,23 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard - Mazer Admin Dashboard</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Mazer Admin Dashboard</title>
 
-    <link rel="stylesheet" href="assets/css/main/app.css" />
-    <link rel="stylesheet" href="assets/css/main/app-dark.css" />
-    <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon" />
-    <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="assets/css/main/app.css" />
+  <link rel="stylesheet" href="assets/css/main/app-dark.css" />
+  <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon" />
+  <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png" />
 
-    <link rel="stylesheet" href="assets/css/shared/iconly.css" />
+  <link rel="stylesheet" href="assets/css/shared/iconly.css" />
+  <link rel="stylesheet" href="assets/extensions/choices.js/public/assets/styles/choices.css">
+
 </head>
 
 <body>
-    <div id="app">
-        <div id="sidebar" class="active">
+  <div id="app">
+    <div id="sidebar" class="active">
       <div class="sidebar-wrapper active">
         <div class="sidebar-header position-relative">
           <div class="d-flex justify-content-between align-items-center">
@@ -116,65 +118,93 @@
           </ul>
         </div>
       </div>
-        </div>
     </div>
-        <div id="main">
-            <header class="mb-3">
-                <a href="#" class="burger-btn d-block d-xl-none">
-                    <i class="bi bi-justify fs-3"></i>
-                </a>
-            </header>
-            <div class="page-heading">
-                <h3>Add Teachers</h3>
-            </div>
-            <div class="page-content">
-                <section class="row">
-                    <div class="col-12 col-lg-6">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <section id="multiple-column-form">
-                                            <div class="row match-height">
-                                                <div class="col-12">
-                                                    <div class="card">
-                                                        <div class="card-content">
-                                                            <div class="card-body">
-                                                                <form class="form" action="insert_brend.php" method="post">
-                                                                    <div class="row">
-                                                                        <div class="col-md-6 col-12">
-                                                                            <div class="form-group">
-                                                                                <label for="brend">Name</label>
-                                                                                <input type="text" id="brend" name="brend" class="form-control" placeholder="Name" requared>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-12 d-flex justify-content-end">
-                                                                        <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
-                                                                        <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
-                                                                    </div>
-                                                            </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+    <div id="main">
+      <header class="mb-3">
+        <a href="#" class="burger-btn d-block d-xl-none">
+          <i class="bi bi-justify fs-3"></i>
+        </a>
+      </header>
+      <div class="page-heading">
+        <h3>Add Products</h3>
+      </div>
+      <div class="page-content">
+        <section class="row">
+          <div class="col-12 col-lg-12">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <section id="multiple-column-form">
+                      <div class="row match-height">
+                        <div class="col-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h4 class="card-title">Multiple Column</h4>
+                            </div>
+                            <div class="card-content">
+                              <div class="card-body">
+                                <form class="form" action="insert_teacher.php" method="post" enctype="multipart/form-data">
+                                  <div class="row">
+                                    <div class="col-md-6 col-12">
+                                      <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" id="name" name="name" class="form-control" placeholder="Name" requared>
+                                      </div>
                                     </div>
-                </section>
+                                    <div class="col-md-6 col-12">
+                                      <div class="form-group">
+                                        <label for="exampleFormControlTextarea1" class="form-label">Text</label>
+                                        <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="1" requared></textarea>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                      <div class="form-group">
+                                        <label>Subject</label>
+                                        <?php
+                                        $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+                                        $sql = "SELECT * FROM subject";
+                                        $query = $pdo->prepare($sql);
+                                        $query->execute();
+                                        $subject = $query->fetchAll(PDO::FETCH_ASSOC);
+                                        ?>
+                                        <select name="subject" class="form-select">
+                                          <?php foreach ($subject as $item) : ?>
+                                            <option value="<?= $item['subject'] ?>"><?= $item['subject'] ?></option>
+                                          <?php endforeach; ?>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                      <div class="form-group">
+                                        <label for="img" class="form-label">Img</label>
+                                        <input class="form-control" name="img" type="file" id="img" accept="image/*" requared>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-end">
+                                      <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
+                                      <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-    </div>
-    </div>
-    </div>
+          </div>
 
-    </section>
-    </div>
-    <script src="assets/js/bootstrap.js"></script>
-    <script src="assets/js/app.js"></script>
+        </section>
+      </div>
+      <script src="assets/js/bootstrap.js"></script>
+      <script src="assets/js/app.js"></script>
 
-    <!-- Need: Apexcharts -->
-    <script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/js/pages/dashboard.js"></script>
+      <script src="assets/js/pages/form-element-select.js"></script>
 </body>
 
 </html>

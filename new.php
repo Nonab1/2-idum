@@ -1,3 +1,12 @@
+<?php 
+$id = $_GET['id'];
+$pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+$sql = "SELECT * FROM news WHERE id=$id";
+$query = $pdo->prepare($sql);
+$query->execute();
+$item = $query->fetch(PDO::FETCH_ASSOC);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,7 +69,20 @@
     <!-- header end-->
     <!-- section start -->
     <section>
-
+        <div class="left">
+            <div class="img">
+                <img src="newsphotos/<?= $item['img'] ?>" alt="">
+            </div>
+            <div class="text">       
+                <h3>
+                    <?= $item['header']; ?>
+                </h3>
+                <p>
+                    <?= $item['text']; ?>
+                </p>
+                <a href="news.php">Orqaga</a>
+            </div>
+        </div>
     </section>
     <!-- section end -->
     <!-- footer start -->

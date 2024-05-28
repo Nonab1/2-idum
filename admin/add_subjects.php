@@ -140,12 +140,12 @@
                                         <div class="card">
                                             <div class="card-content">
                                                 <div class="card-body">
-                                                    <form class="form" action="insert_type.php" method="post">
+                                                    <form class="form" action="insert_subject.php" method="post">
                                                         <div class="row">   
                                                             <div class="col-md-6 col-12">
                                                                 <div class="form-group">
-                                                                    <label for="type">Name</label>
-                                                                    <input type="text" id="type" name="type" class="form-control" placeholder="Name" requared>
+                                                                    <label for="subject">Subject</label>
+                                                                    <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" requared>
                                                                 </div>
                                                             </div>
                                                             </div>
