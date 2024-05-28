@@ -41,32 +41,34 @@
             <li><a href="news.php">Yangiliklar</a></li>
             <li class="mobile"><a href="#">Uslubiy birlashma<i class="fa-solid fa-arrow-down iTouch"></i></a></i>
             <ul class="mobileUl">
-                  <li><a href="">Administratsiya</a></li>
-                  <li><a href="">Boshlang'ich</a></li>
-                  <li><a href="">Aniq fanlar</a></li>
-                  <li><a href="">Tabiiy fanlar</a></li>
-                  <li><a href="">Amaliy fanlar</a></li>
-                  <li><a href="">Ijtimoiy fanlar</a></li>
-                  <li><a href="">Sport</a></li>
-                  <li><a href="">Filalogiya</a></li>
-                  <li><a href="">Rus tili</a></li>
-                  <li><a href="">Xorijiy tillar</a></li>
-                </ul>
+                <?php 
+                $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+                $sql = "SELECT * FROM subject";
+                $query = $pdo->prepare($sql);
+                $query->execute();
+                $data = $query->fetchAll(PDO::FETCH_ASSOC);
+                
+                ?>
+                <?php foreach($data as $item): ?>
+                      <li><a href="teachers.php?subject=<?= $item['subject'] ?>"><?= $item['subject'] ?></a></li>
+                <?php endforeach; ?>
+            </ul>
             </li>
             <li  class="lap"><a href="#">Uslubiy birlashma</a></i>
               <ul class="mouve">
-                    <li><a href="">Administratsiya</a></li>
-                    <li><a href="">Boshlang'ich</a></li>
-                    <li><a href="">Aniq fanlar</a></li>
-                    <li><a href="">Tabiiy fanlar</a></li>
-                    <li><a href="">Amaliy fanlar</a></li>
-                    <li><a href="">Ijtimoiy fanlar</a></li>
-                    <li><a href="">Sport</a></li>
-                    <li><a href="">Filalogiya</a></li>
-                    <li><a href="">Rus tili</a></li>
-                    <li><a href="">Xorijiy tillar</a></li>
-                  </ul>
-              </li>
+                <?php 
+                $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+                $sql = "SELECT * FROM subject";
+                $query = $pdo->prepare($sql);
+                $query->execute();
+                $data = $query->fetchAll(PDO::FETCH_ASSOC);
+
+                ?>
+                <?php foreach($data as $item): ?>
+                      <li><a href="teachers.php?subject=<?= $item['subject'] ?>"><?= $item['subject'] ?></a></li>
+                <?php endforeach; ?>
+              </ul>
+            </li>
             <li><a href="rooms.php">Sinf xonalar</a></li>
             <li><a href="about.php">Sayt yaratuvchilari</a></li>
             <li><i class="fa-solid fa-arrow-left back"></i></li>
@@ -134,58 +136,28 @@
             </div>
             <div class="splide__track">
               <ul class="splide__list">
-                <li class="splide__slide">
-                    <div class="card">
-                      <div class="img">
-                          <img src="photos/bphoto4.jpg" alt="">
-                      </div>
-                      <div class="text">
-                          <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt?</h3>
-                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis error voluptates, asperiores tempora blanditiis est nobis.</p>
-                          <p>10-03-2024</p>
-                          <a href="#">Batafsil</a>
-                      </div>
-                    </div>
-                </li>
+                <?php 
+                $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+                $sql = "SELECT * FROM news";
+                $query = $pdo->prepare($sql);
+                $query->execute();
+                $data = $query->fetchAll(PDO::FETCH_ASSOC);
+                ?>
+                <?php foreach($data as $item): ?>
                 <li class="splide__slide">
                   <div class="card">
                     <div class="img">
-                        <img src="photos/bphoto4.jpg" alt="">
+                      <img src="newsphotos/<?= $item['img'] ?>" alt="">
                     </div>
                     <div class="text">
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt?</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis error voluptates, asperiores tempora blanditiis est nobis.</p>
-                        <p>10-03-2024</p>
-                        <a href="#">Batafsil</a>
+                      <h3><?= $item['header'] ?></h3>
+                      <p><?= $item['text'] ?></p>
+                      <p><?= $item['time'] ?></p>
+                      <a href="new.php?id=<?= $item['id'] ?>">Batafsil</a>
                     </div>
                   </div>
                 </li>
-                <li class="splide__slide">
-                <div class="card">
-                  <div class="img">
-                      <img src="photos/bphoto4.jpg" alt="">
-                  </div>
-                  <div class="text">
-                      <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt?</h3>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis error voluptates, asperiores tempora blanditiis est nobis.</p>
-                      <p>10-03-2024</p>
-                      <a href="#">Batafsil</a>
-                  </div>
-                </div>
-                </li>
-                <li class="splide__slide">
-              <div class="card">
-                <div class="img">
-                    <img src="photos/bphoto4.jpg" alt="">
-                </div>
-                <div class="text">
-                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt?</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis error voluptates, asperiores tempora blanditiis est nobis.</p>
-                    <p>10-03-2024</p>
-                    <a href="#">Batafsil</a>
-                </div>
-              </div>
-                </li>
+                <?php endforeach; ?>
               </ul>
             </div>
           </section>
