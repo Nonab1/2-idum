@@ -1,12 +1,3 @@
-<?php 
-$pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
-$sql = "SELECT * FROM teacher WHERE subject=:subject";
-$query = $pdo->prepare($sql);
-$query->bindParam('subject', $_GET['subject']);
-$query->execute();
-$data = $query->fetchAll(PDO::FETCH_ASSOC);
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,33 +37,35 @@ $data = $query->fetchAll(PDO::FETCH_ASSOC);
             <li><a href="index.php">Bosh sahifa</a></li>
             <li><a href="news.php">Yangiliklar</a></li>
             <li class="mobile"><a href="#">Uslubiy birlashma<i class="fa-solid fa-arrow-down iTouch"></i></a></i>
-            <ul class="mobileUl">
-                  <li><a href="">Administratsiya</a></li>
-                  <li><a href="">Boshlang'ich</a></li>
-                  <li><a href="">Aniq fanlar</a></li>
-                  <li><a href="">Tabiiy fanlar</a></li>
-                  <li><a href="">Amaliy fanlar</a></li>
-                  <li><a href="">Ijtimoiy fanlar</a></li>
-                  <li><a href="">Sport</a></li>
-                  <li><a href="">Filalogiya</a></li>
-                  <li><a href="">Rus tili</a></li>
-                  <li><a href="">Xorijiy tillar</a></li>
+                <ul class="mobileUl">
+                <?php 
+                $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+                $sql = "SELECT * FROM subject";
+                        $query = $pdo->prepare($sql);
+                $query->execute();
+                $data = $query->fetchAll(PDO::FETCH_ASSOC);
+
+                ?>
+                <?php foreach($data as $item): ?>
+                      <li><a href="teachers.php?subject=<?= $item['subject'] ?>"><?= $item['subject'] ?></a></li>
+                <?php endforeach; ?>
                 </ul>
             </li>
             <li  class="lap"><a href="#">Uslubiy birlashma</a></i>
               <ul class="mouve">
-                    <li><a href="">Administratsiya</a></li>
-                    <li><a href="">Boshlang'ich</a></li>
-                    <li><a href="">Aniq fanlar</a></li>
-                    <li><a href="">Tabiiy fanlar</a></li>
-                    <li><a href="">Amaliy fanlar</a></li>
-                    <li><a href="">Ijtimoiy fanlar</a></li>
-                    <li><a href="">Sport</a></li>
-                    <li><a href="">Filalogiya</a></li>
-                    <li><a href="">Rus tili</a></li>
-                    <li><a href="">Xorijiy tillar</a></li>
-                  </ul>
-              </li>
+                <?php 
+                $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+                $sql = "SELECT * FROM subject";
+                $query = $pdo->prepare($sql);
+                $query->execute();
+                $data = $query->fetchAll(PDO::FETCH_ASSOC);
+
+                ?>
+                <?php foreach($data as $item): ?>
+                      <li><a href="teachers.php?subject=<?= $item['subject'] ?>"><?= $item['subject'] ?></a></li>
+                <?php endforeach; ?>
+              </ul>
+            </li>
             <li><a href="rooms.php">Sinf xonalar</a></li>
             <li><a href="about.php">Sayt yaratuvchilari</a></li>
             <li><i class="fa-solid fa-arrow-left back"></i></li>
@@ -81,6 +74,15 @@ $data = $query->fetchAll(PDO::FETCH_ASSOC);
     <!-- header end-->
     <!-- xonalar start -->
     <section id="pagination-section">
+        <?php 
+        $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+        $sql = "SELECT * FROM teacher WHERE subject=:subject";
+        $query = $pdo->prepare($sql);
+        $query->bindParam('subject', $_GET['subject']);
+        $query->execute();
+        $data = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        ?>
         <div class="pagination">
             <?php foreach($data as $item): ?>
             <div class="card">
@@ -90,7 +92,7 @@ $data = $query->fetchAll(PDO::FETCH_ASSOC);
                     <div class="text">
                         <h3><?= $item['name'] ?></h3>
                         <p><?= $item['text'] ?></p>
-                        <a href="teacher.php">Batafsil</a>
+                        <a href="teacher.php?id=<?= $item['id'] ?>">Batafsil</a>
                     </div>
             </div>
             <?php endforeach ?>

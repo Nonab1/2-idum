@@ -70,18 +70,28 @@
     </header>
     <!-- header end-->
     <!-- section start -->
+                <?php
+
+                $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+                $sql = "SELECT * FROM teacher WHERE id=:id";
+                $query = $pdo->prepare($sql);
+                $query->bindParam('id', $_GET["id"]);
+                $query->execute();
+                $item = $query->fetch(PDO::FETCH_ASSOC);
+
+                ?>
      <section>
         <div class="img">
-            <img src="teacherphotos/Эшбаев.jpg" alt="">
+            <img src="teacherphotos/<?= $item['img'] ?>" alt="">
         </div>
         <div class="text">       
             <h3>
-                Eshboyev Jasur
+                <?= $item['name'] ?>
             </h3>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit neque quos magnam non possimus in et     sunt itaque fugit doloribus cum blanditiis praesentium tenetur numquam, impedit quasi maxime    placeat? Corporis asperiores excepturi modi porro illo rem, optio quibusdam unde? Quod, delectus   consectetur modi ipsam possimus necessitatibus perferendis voluptatem adipisci cupiditate impedit     nisi aut veritatis expedita, unde illum molestias, facilis nihil fugiat pariatur quae aspernatur    eum? Mollitia quisquam voluptatum quo explicabo excepturi distinctio facilis autem dicta quas est  accusamus molestiae voluptatem sapiente omnis dolores adipisci natus esse ratione ducimus minima     quidem, sequi minus facere? Illo quam voluptatum sint eaque, dolorem quod.
+                <?= $item['text'] ?>
             </p>
-            <a href="teachers.php">Orqaga</a>
+            <a href="teachers.php?subject=<?= $item['subject'] ?>">Orqaga</a>
         </div>
     </section>
     <!-- section end -->
