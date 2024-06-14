@@ -41,14 +41,7 @@
             <li><a href="news.php">Yangiliklar</a></li>
             <li class="mobile"><a href="#">Uslubiy birlashma<i class="fa-solid fa-arrow-down iTouch"></i></a></i>
             <ul class="mobileUl">
-                <?php 
-                $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
-                $sql = "SELECT * FROM subject";
-                $query = $pdo->prepare($sql);
-                $query->execute();
-                $data = $query->fetchAll(PDO::FETCH_ASSOC);
-                
-                ?>
+                <?php require_once"subject.php" ?>
                 <?php foreach($data as $item): ?>
                       <li><a href="teachers.php?subject=<?= $item['subject'] ?>"><?= $item['subject'] ?></a></li>
                 <?php endforeach; ?>
@@ -56,14 +49,7 @@
             </li>
             <li  class="lap"><a href="#">Uslubiy birlashma</a></i>
               <ul class="mouve">
-                <?php 
-                $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
-                $sql = "SELECT * FROM subject";
-                $query = $pdo->prepare($sql);
-                $query->execute();
-                $data = $query->fetchAll(PDO::FETCH_ASSOC);
-
-                ?>
+                <?php require_once"subject.php" ?>
                 <?php foreach($data as $item): ?>
                       <li><a href="teachers.php?subject=<?= $item['subject'] ?>"><?= $item['subject'] ?></a></li>
                 <?php endforeach; ?>
@@ -101,9 +87,29 @@
           </section>
         <!-- splide end -->
         <!-- hello start -->
-        <div class="hello" style="width: 100%; height:50px; text-align:center">
-          <h1>Salom: <a href="admin/index.php" target="_blank" style="color: black;">Admin</a></h1>
-        </div>
+        <?php 
+          if(isset($_COOKIE['user'])){
+            $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+            $sql = "SELECT * FROM users WHERE name=:name";
+            $query = $pdo->prepare($sql);
+            $query->bindParam('name', $_COOKIE['user']);
+            $query->execute();
+            $data = $query->fetch(PDO::FETCH_ASSOC);
+            $user = $data['name'];
+
+            echo "<div class=\"hello\" style=\"width: 100%; height:50px; text-align:center\">";
+              if($data['status'] == 1){
+                echo "<h1>Salom:<a href=\"admin/index.php\" target=\"_blank\" style=\"color: black;\">$user</a></h1>";
+              }else{
+                echo "<h1>Salom:$user</h1>";
+              }
+            echo "</div>";
+          }else{
+            echo "<h1 style=\"text-align:center;\"><a href=\"login.php\" target=\"_blank\" style=\"color: black;\">Login</a></h1>";
+          }
+        
+        
+        ?>
         <!-- hello end -->
         <!-- maktab start -->
         <div class="maktab">

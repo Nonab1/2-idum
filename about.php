@@ -34,34 +34,20 @@
             <li><a href="index.php">Bosh sahifa</a></li>
             <li><a href="news.php">Yangiliklar</a></li>
             <li class="mobile"><a href="#">Uslubiy birlashma<i class="fa-solid fa-arrow-down iTouch"></i></a></i>
-            <ul class="mobileUl">
-                <?php 
-                $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
-                $sql = "SELECT * FROM subject";
-                $query = $pdo->prepare($sql);
-                $query->execute();
-                $data = $query->fetchAll(PDO::FETCH_ASSOC);
-
-                ?>
-                <?php foreach($data as $item): ?>
-                      <li><a href="teachers.php?subject=<?= $item['subject'] ?>"><?= $item['subject'] ?></a></li>
-                <?php endforeach; ?>
+                <ul class="mobileUl">
+                    <?php require_once"subject.php" ?>
+                    <?php foreach($data as $item): ?>
+                          <li><a href="teachers.php?subject=<?= $item['subject'] ?>"><?= $item['subject'] ?></a></li>
+                    <?php endforeach; ?>
                 </ul>
             </li>
             <li  class="lap"><a href="#">Uslubiy birlashma</a></i>
               <ul class="mouve">
-                <?php 
-                $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
-                $sql = "SELECT * FROM subject";
-                $query = $pdo->prepare($sql);
-                $query->execute();
-                $data = $query->fetchAll(PDO::FETCH_ASSOC);
-
-                ?>
+                <?php require_once"subject.php" ?>
                 <?php foreach($data as $item): ?>
                       <li><a href="teachers.php?subject=<?= $item['subject'] ?>"><?= $item['subject'] ?></a></li>
                 <?php endforeach; ?>
-                </ul>
+              </ul>
             </li>
             <li><a href="rooms.php">Sinf xonalar</a></li>
             <li><a href="about.php">Sayt yaratuvchilari</a></li>
