@@ -1,4 +1,24 @@
 <?php
+if(isset($_COOKIE['user'])){
+  $user=$_COOKIE['user'];
+};
+if(isset($user)){
+  $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+  $sql = "SELECT * FROM users WHERE name=:name";
+  $query = $pdo->prepare($sql);
+  $query->bindParam('name', $_COOKIE['user']);
+  $query->execute();
+  $data = $query->fetch(PDO::FETCH_ASSOC);
+
+  $status = $data['status'];
+  if($status == 1){
+
+  }else{
+    header("Location: /index.php");
+  };
+}else{
+  header("Location: /index.php");
+};
 
 $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
 $sql = "SELECT * FROM subject";

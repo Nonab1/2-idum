@@ -78,7 +78,7 @@ if(isset($_COOKIE['user'])){
                 $user = $query->fetch(PDO::FETCH_ASSOC);
 
                 if($user){
-                    setcookie('user', $user['status'], time()*10);
+                    setcookie('user', $user['nane'], time()*10);
 
                     header('Location: /');
                 }

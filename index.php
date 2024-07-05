@@ -89,26 +89,23 @@
         <!-- hello start -->
         <?php 
           if(isset($_COOKIE['user'])){
+            $user=$_COOKIE['user'];
+          };
+          if(isset($user)){
             $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
             $sql = "SELECT * FROM users WHERE name=:name";
             $query = $pdo->prepare($sql);
             $query->bindParam('name', $_COOKIE['user']);
             $query->execute();
             $data = $query->fetch(PDO::FETCH_ASSOC);
-            $user = $data['name'];
-
-            echo "<div class=\"hello\" style=\"width: 100%; height:50px; text-align:center\">";
-              if($data['status'] == 1){
-                echo "<h1>Salom:<a href=\"admin/index.php\" target=\"_blank\" style=\"color: black;\">$user</a></h1>";
-              }else{
-                echo "<h1>Salom:$user</h1>";
-              }
-            echo "</div>";
+            echo "<h1 style=\"text-align:center;\">$user</h1>";
+            $status = $data['status'];
+            if($status == 1){
+              echo "<h1 style=\"text-align:center;\"><a href=\"admin/index.php\" target=\"_blank\"; style=\"color: black;\">Adminga o'tish</a></h1>";
+            };
           }else{
-            echo "<h1 style=\"text-align:center;\"><a href=\"login.php\" target=\"_blank\" style=\"color: black;\">Login</a></h1>";
+            echo "<h1 style=\"text-align:center;\"><a href=\"login.php\" style=\"color: black;\">Login</a></h1>";
           }
-        
-        
         ?>
         <!-- hello end -->
         <!-- maktab start -->
