@@ -75,23 +75,23 @@
         <div class="sidebar-menu">
           <ul class="menu">
             <li class="sidebar-title">Menu</li>
-            <li class="sidebar-item active">
+            <li class="sidebar-item">
               <a href="index.php" class="sidebar-link">
                 <i class="bi bi-grid-fill"></i>
                 <span>Dashboard</span>
               </a>
             </li>
-            <li class="sidebar-item has-sub">
+            <li class="sidebar-item has-sub active">
               <a href="#" class="sidebar-link">
                 <i class="bi bi-phone"></i>
                 <span>News</span>
               </a>
               <ul class="submenu">
-                <li class="submenu-item ">
+                <li class="submenu-item">
                   <a href="news.php">News</a>
                 </li>
                 <li class="submenu-item ">
-                  <a href="add_news.php">Add news</a>
+                  <a href="add_news.php active">Add news</a>
                 </li>
               </ul>
             </li>

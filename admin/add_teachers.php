@@ -75,7 +75,7 @@
         <div class="sidebar-menu">
           <ul class="menu">
             <li class="sidebar-title">Menu</li>
-            <li class="sidebar-item active">
+            <li class="sidebar-item">
               <a href="index.php" class="sidebar-link">
                 <i class="bi bi-grid-fill"></i>
                 <span>Dashboard</span>
@@ -95,7 +95,7 @@
                 </li>
               </ul>
             </li>
-            <li class="sidebar-item has-sub ">
+            <li class="sidebar-item has-sub active">
               <a href="#" class="sidebar-link">
                 <i class="bi bi-eyeglasses"></i>
                 <span>Teachers</span>
@@ -104,7 +104,7 @@
                 <li class="submenu-item ">
                   <a href="teachers.php">Teachers</a>
                 </li>
-                <li class="submenu-item ">
+                <li class="submenu-item active">
                   <a href="add_teachers.php">Add Teachers</a>
                 </li>
               </ul>
