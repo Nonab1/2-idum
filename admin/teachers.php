@@ -89,6 +89,20 @@ $data = $query->fetchAll(PDO::FETCH_ASSOC);
             <li class="sidebar-item has-sub">
               <a href="#" class="sidebar-link">
                 <i class="bi bi-phone"></i>
+                <span>Slide</span>
+              </a>
+              <ul class="submenu">
+                <li class="submenu-item ">
+                  <a href="slide.php">Slide</a>
+                </li>
+                <li class="submenu-item ">
+                  <a href="add_slide.php">Add slide</a>
+                </li>
+              </ul>
+            </li>
+            <li class="sidebar-item has-sub">
+              <a href="#" class="sidebar-link">
+                <i class="bi bi-phone"></i>
                 <span>News</span>
               </a>
               <ul class="submenu">

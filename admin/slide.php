@@ -1,24 +1,31 @@
-<?php 
-  if(isset($_COOKIE['user'])){
-    $user=$_COOKIE['user'];
-  };
-  if(isset($user)){
-    $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
-    $sql = "SELECT * FROM users WHERE name=:name";
-    $query = $pdo->prepare($sql);
-    $query->bindParam('name', $_COOKIE['user']);
-    $query->execute();
-    $data = $query->fetch(PDO::FETCH_ASSOC);
+<?php
+if(isset($_COOKIE['user'])){
+  $user=$_COOKIE['user'];
+};
+if(isset($user)){
+  $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+  $sql = "SELECT * FROM users WHERE name=:name";
+  $query = $pdo->prepare($sql);
+  $query->bindParam('name', $_COOKIE['user']);
+  $query->execute();
+  $data = $query->fetch(PDO::FETCH_ASSOC);
 
-    $status = $data['status'];
-    if($status == 1){
+  $status = $data['status'];
+  if($status == 1){
 
-    }else{
-      header("Location: /index.php");
-    };
   }else{
     header("Location: /index.php");
   };
+}else{
+  header("Location: /index.php");
+};
+
+$pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+$sql = "SELECT * FROM slide";
+$query = $pdo->prepare($sql);
+$query->execute();
+$data = $query->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,8 +41,6 @@
   <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png" />
 
   <link rel="stylesheet" href="assets/css/shared/iconly.css" />
-  <link rel="stylesheet" href="assets/extensions/choices.js/public/assets/styles/choices.css">
-
 </head>
 
 <body>
@@ -81,13 +86,13 @@
                 <span>Dashboard</span>
               </a>
             </li>
-            <li class="sidebar-item has-sub">
+            <li class="sidebar-item has-sub active">
               <a href="#" class="sidebar-link">
                 <i class="bi bi-phone"></i>
                 <span>Slide</span>
               </a>
               <ul class="submenu">
-                <li class="submenu-item ">
+                <li class="submenu-item active">
                   <a href="slide.php">Slide</a>
                 </li>
                 <li class="submenu-item ">
@@ -109,7 +114,7 @@
                 </li>
               </ul>
             </li>
-            <li class="sidebar-item has-sub active">
+            <li class="sidebar-item has-sub ">
               <a href="#" class="sidebar-link">
                 <i class="bi bi-eyeglasses"></i>
                 <span>Teachers</span>
@@ -118,7 +123,7 @@
                 <li class="submenu-item ">
                   <a href="teachers.php">Teachers</a>
                 </li>
-                <li class="submenu-item active">
+                <li class="submenu-item ">
                   <a href="add_teachers.php">Add Teachers</a>
                 </li>
               </ul>
@@ -162,7 +167,7 @@
         </a>
       </header>
       <div class="page-heading">
-        <h3>Add Products</h3>
+        <h3>Slides</h3>
       </div>
       <div class="page-content">
         <section class="row">
@@ -170,65 +175,31 @@
             <div class="row">
               <div class="col-12">
                 <div class="card">
+                  <div class="card-header">
+                    <a href="add_slide.php" class="btn btn-primary">+ Add Slide</a>
+                  </div>
                   <div class="card-body">
-                    <section id="multiple-column-form">
-                      <div class="row match-height">
-                        <div class="col-12">
-                          <div class="card">
-                            <div class="card-header">
-                              <h4 class="card-title">Multiple Column</h4>
-                            </div>
-                            <div class="card-content">
-                              <div class="card-body">
-                                <form class="form" action="insert_teacher.php" method="post" enctype="multipart/form-data">
-                                  <div class="row">
-                                    <div class="col-md-6 col-12">
-                                      <div class="form-group">
-                                        <label for="name">Name</label>
-                                        <input type="text" id="name" name="name" class="form-control" placeholder="Name" requared>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                      <div class="form-group">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Text</label>
-                                        <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="1" requared></textarea>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                      <div class="form-group">
-                                        <label>Subject</label>
-                                        <?php
-                                        $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
-                                        $sql = "SELECT * FROM subject";
-                                        $query = $pdo->prepare($sql);
-                                        $query->execute();
-                                        $subject = $query->fetchAll(PDO::FETCH_ASSOC);
-                                        ?>
-                                        <select name="subject" class="form-select">
-                                          <?php foreach ($subject as $item) : ?>
-                                            <option value="<?= $item['subject'] ?>"><?= $item['subject'] ?></option>
-                                          <?php endforeach; ?>
-                                        </select>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                      <div class="form-group">
-                                        <label for="img" class="form-label">Img</label>
-                                        <input class="form-control" name="img" type="file" id="img" accept="image/*" requared>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 d-flex justify-content-end">
-                                      <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
-                                      <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
-                                    </div>
-                                  </div>
-                                </form>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </section>
+                    <div class="table-responsive">
+                      <table class="table table-lg">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php foreach ($data as $item) : ?>
+                            <tr>
+                              <td><?= $item['name'] ?></td>
+                              <td>
+                                <a href="edit_slide.php?id=<?= $item['id'] ?>" class="btn btn-success">Edit</a>
+                                <a href="delete_slide.php?id=<?= $item['id'] ?>" onclick="return confirm('<?= $item['name'] ?>ni ochirmoqchimidiz?')" class="btn btn-danger">Delete</a>
+                              </td>
+                            </tr>
+                          <?php endforeach; ?>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -240,7 +211,9 @@
       <script src="assets/js/bootstrap.js"></script>
       <script src="assets/js/app.js"></script>
 
-      <script src="assets/js/pages/form-element-select.js"></script>
+      <!-- Need: Apexcharts -->
+      <script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
+      <script src="assets/js/pages/dashboard.js"></script>
 </body>
 
 </html>

@@ -81,17 +81,17 @@
                 <span>Dashboard</span>
               </a>
             </li>
-            <li class="sidebar-item has-sub">
+            <li class="sidebar-item has-sub active">
               <a href="#" class="sidebar-link">
                 <i class="bi bi-phone"></i>
                 <span>Slide</span>
               </a>
               <ul class="submenu">
-                <li class="submenu-item ">
-                  <a href="slide.php">Slide</a>
+                <li class="submenu-item">
+                  <a href="news.php">Slide</a>
                 </li>
-                <li class="submenu-item ">
-                  <a href="add_slide.php">Add slide</a>
+                <li class="submenu-item">
+                  <a href="add_news.php active">Add slides</a>
                 </li>
               </ul>
             </li>
@@ -101,7 +101,7 @@
                 <span>News</span>
               </a>
               <ul class="submenu">
-                <li class="submenu-item ">
+                <li class="submenu-item">
                   <a href="news.php">News</a>
                 </li>
                 <li class="submenu-item ">
@@ -109,7 +109,7 @@
                 </li>
               </ul>
             </li>
-            <li class="sidebar-item has-sub active">
+            <li class="sidebar-item has-sub ">
               <a href="#" class="sidebar-link">
                 <i class="bi bi-eyeglasses"></i>
                 <span>Teachers</span>
@@ -118,7 +118,7 @@
                 <li class="submenu-item ">
                   <a href="teachers.php">Teachers</a>
                 </li>
-                <li class="submenu-item active">
+                <li class="submenu-item ">
                   <a href="add_teachers.php">Add Teachers</a>
                 </li>
               </ul>
@@ -162,7 +162,7 @@
         </a>
       </header>
       <div class="page-heading">
-        <h3>Add Products</h3>
+        <h3>Add News</h3>
       </div>
       <div class="page-content">
         <section class="row">
@@ -180,35 +180,12 @@
                             </div>
                             <div class="card-content">
                               <div class="card-body">
-                                <form class="form" action="insert_teacher.php" method="post" enctype="multipart/form-data">
+                                <form class="form" action="insert_slide.php" method="post" enctype="multipart/form-data">
                                   <div class="row">
                                     <div class="col-md-6 col-12">
                                       <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" id="name" name="name" class="form-control" placeholder="Name" requared>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                      <div class="form-group">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Text</label>
-                                        <textarea name="text" class="form-control" id="exampleFormControlTextarea1" rows="1" requared></textarea>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                      <div class="form-group">
-                                        <label>Subject</label>
-                                        <?php
-                                        $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
-                                        $sql = "SELECT * FROM subject";
-                                        $query = $pdo->prepare($sql);
-                                        $query->execute();
-                                        $subject = $query->fetchAll(PDO::FETCH_ASSOC);
-                                        ?>
-                                        <select name="subject" class="form-select">
-                                          <?php foreach ($subject as $item) : ?>
-                                            <option value="<?= $item['subject'] ?>"><?= $item['subject'] ?></option>
-                                          <?php endforeach; ?>
-                                        </select>
+                                        <input type="text" id="name" name="name" class="form-control" placeholder="name" requared>
                                       </div>
                                     </div>
                                     <div class="col-md-6 col-12">

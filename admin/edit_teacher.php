@@ -22,8 +22,8 @@ if(isset($user)){
 
 $id = $_GET['id'];
 
-$pdo = new PDO("mysql:host=localhost;dbname=idea", 'root', 'root');
-$sql = "SELECT * FROM products WHERE id=$id";
+$pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+$sql = "SELECT * FROM teacher WHERE id=$id";
 $query = $pdo->prepare($sql);
 $query->execute();
 $item = $query->fetch(PDO::FETCH_ASSOC);
@@ -186,54 +186,31 @@ $item = $query->fetch(PDO::FETCH_ASSOC);
                                     </div>
                                     <div class="col-md-6 col-12">
                                       <div class="form-group">
-                                        <label for="price">Price</label>
-                                        <input type="number" min="0" value="<?= $item['price'] ?>" id="price" name="price" class="form-control" placeholder="Price" requared>
+                                        <label for="text">Text</label>
+                                        <input type="text" id="text" value="<?= $item['text'] ?>" name="text" class="form-control" placeholder="Text" requared>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                      <div class="form-group">
+                                        <label>Subject</label>
+                                        <?php
+                                        $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+                                        $sql = "SELECT * FROM subject";
+                                        $query = $pdo->prepare($sql);
+                                        $query->execute();
+                                        $subject = $query->fetchAll(PDO::FETCH_ASSOC);
+                                        ?>
+                                        <select name="subject" class="form-select">
+                                          <?php foreach ($subject as $item) : ?>
+                                            <option value="<?= $item['subject'] ?>"><?= $item['subject'] ?></option>
+                                          <?php endforeach; ?>
+                                        </select>
                                       </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                       <div class="form-group">
                                         <label for="img" class="form-label">Img</label>
-                                        <input class="form-control" name="img" type="file" id="img"  accept="image/*" requared>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                      <div class="form-group">
-                                        <label for="more" class="form-label">Ko'proq ma'lumot</label>
-                                        <input class="form-control" name="more" type="text" id="more" value="<?= $item['more'] ?>" requared>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                      <div class="form-group">
-                                        <label for="basicSelect">Brend</label>
-                                        <?php
-                                        $pdo = new PDO("mysql:host=localhost;dbname=idea", 'root', 'root');
-                                        $sql = "SELECT * FROM brend";
-                                        $query = $pdo->prepare($sql);
-                                        $query->execute();
-                                        $data = $query->fetchAll(PDO::FETCH_ASSOC);
-                                        ?>
-                                        <select name="brend" class="form-select" id="basicSelect">
-                                          <?php foreach ($data as $brend) : ?>
-                                            <option value="<?= $brend['brend'] ?>"><?= $brend['brend'] ?></option>
-                                          <?php endforeach; ?>
-                                        </select>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                      <div class="form-group">
-                                        <label>Type</label>
-                                        <?php
-                                        $pdo = new PDO("mysql:host=localhost;dbname=idea", 'root', 'root');
-                                        $sql = "SELECT * FROM type";
-                                        $query = $pdo->prepare($sql);
-                                        $query->execute();
-                                        $type = $query->fetchAll(PDO::FETCH_ASSOC);
-                                        ?>
-                                        <select name="type" class="form-select">
-                                          <?php foreach ($type as $item) : ?>
-                                            <option value="<?= $item['type'] ?>"><?= $item['type'] ?></option>
-                                          <?php endforeach; ?>
-                                        </select>
+                                        <input class="form-control" name="img" type="file" id="img" accept="image/*" requared>
                                       </div>
                                     </div>
                                     <div class="col-12 d-flex justify-content-end">

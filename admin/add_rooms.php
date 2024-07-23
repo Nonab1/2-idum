@@ -84,6 +84,20 @@
             <li class="sidebar-item has-sub">
               <a href="#" class="sidebar-link">
                 <i class="bi bi-phone"></i>
+                <span>Slide</span>
+              </a>
+              <ul class="submenu">
+                <li class="submenu-item ">
+                  <a href="slide.php">Slide</a>
+                </li>
+                <li class="submenu-item ">
+                  <a href="add_slide.php">Add slide</a>
+                </li>
+              </ul>
+            </li>
+            <li class="sidebar-item has-sub">
+              <a href="#" class="sidebar-link">
+                <i class="bi bi-phone"></i>
                 <span>News</span>
               </a>
               <ul class="submenu">
@@ -95,7 +109,7 @@
                 </li>
               </ul>
             </li>
-            <li class="sidebar-item has-sub active">
+            <li class="sidebar-item has-sub">
               <a href="#" class="sidebar-link">
                 <i class="bi bi-eyeglasses"></i>
                 <span>Teachers</span>
@@ -104,7 +118,7 @@
                 <li class="submenu-item ">
                   <a href="teachers.php">Teachers</a>
                 </li>
-                <li class="submenu-item active">
+                <li class="submenu-item">
                   <a href="add_teachers.php">Add Teachers</a>
                 </li>
               </ul>
@@ -123,7 +137,7 @@
                 </li>
               </ul>
             </li>
-            <li class="sidebar-item has-sub">
+            <li class="sidebar-item has-sub active">
               <a href="#" class="sidebar-link">
                 <i class="bi bi-grid-fill"></i>
                 <span>Rooms</span>
@@ -132,7 +146,7 @@
                 <li class="submenu-item">
                   <a href="rooms.php">Rooms</a>
                 </li>
-                <li class="submenu-item">
+                <li class="submenu-item active">
                   <a href="add_rooms.php">Add Rooms</a>
                 </li>
               </ul>
