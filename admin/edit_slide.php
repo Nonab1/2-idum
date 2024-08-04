@@ -19,6 +19,13 @@
   }else{
     header("Location: /index.php");
   };
+$id = $_GET['id'];
+
+$pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+$sql = "SELECT * FROM slide WHERE id=$id";
+$query = $pdo->prepare($sql);
+$query->execute();
+$item = $query->fetch(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -162,7 +169,7 @@
         </a>
       </header>
       <div class="page-heading">
-        <h3>Add News</h3>
+        <h3>Edit Slide</h3>
       </div>
       <div class="page-content">
         <section class="row">
@@ -180,12 +187,13 @@
                             </div>
                             <div class="card-content">
                               <div class="card-body">
-                                <form class="form" action="insert_slide.php" method="post" enctype="multipart/form-data">
+                                <form class="form" action="update_slide.php" method="post" enctype="multipart/form-data">
                                   <div class="row">
                                     <div class="col-md-6 col-12">
                                       <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" id="name" name="name" class="form-control" placeholder="name" requared>
+                                        <input type="text" style="display: none;" name="id" value="<?= $item['id'] ?>">
+                                        <input type="text" id="name" name="name" class="form-control" value="<?= $item['name'] ?>" placeholder="name" requared>
                                       </div>
                                     </div>
                                     <div class="col-md-6 col-12">

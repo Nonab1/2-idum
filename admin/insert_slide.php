@@ -24,7 +24,7 @@ if (count($_POST) > 0) {
         echo "<pre>";
         print_r($item);
         echo "</pre>";
-        move_uploaded_file($img_tmp_name, "../roomphotos/".$img_new_name);
+        move_uploaded_file($img_tmp_name, "../slidephotos/".$img_new_name);
         $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
         $sql = "INSERT INTO slide (name, img) VALUES (:name,:img)";
         $query = $pdo->prepare($sql);

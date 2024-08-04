@@ -64,6 +64,13 @@
     <!-- middle start -->
     <div class="middle">
         <!-- splide start -->
+        <?php 
+        $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
+        $sql = "SELECT * FROM slide";
+        $query = $pdo->prepare($sql);
+        $query->execute();
+        $data = $query->fetchAll(PDO::FETCH_ASSOC);
+        ?>
         <section class="splide" aria-label="Splide Basic HTML Example">
             <div class="splide__arrows splide__arrows--ltr">
               <button class="splide__arrow splide__arrow--prev" type="button" aria-label="Previous slide"
@@ -77,11 +84,9 @@
             </div>
             <div class="splide__track">
               <ul class="splide__list">
-                <li class="splide__slide"><img src="photos/bphoto5.jpg" alt=""></li>
-                <li class="splide__slide"><img src="photos/bphoto6.jpg" alt=""></li>
-                <li class="splide__slide"><img src="photos/bphoto1.jpg" alt=""></li>
-                <li class="splide__slide"><img src="photos/bphoto1.jpg" alt=""></li>
-                <li class="splide__slide"><img src="photos/bphoto1.jpg" alt=""></li>
+                <?php foreach($data as $item): ?>
+                  <li class="splide__slide"><img src="slidephotos/<?= $item['img'] ?>" alt=""></li>
+                <?php endforeach; ?>
               </ul>
             </div>
           </section>

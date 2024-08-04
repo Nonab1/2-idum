@@ -1,9 +1,4 @@
 <?php
-
-
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
 if (count($_POST) > 0) {
     $img_name = $_FILES['img']['name'];
     $img_tmp_name = $_FILES['img']['tmp_name'];
@@ -31,7 +26,6 @@ if (count($_POST) > 0) {
         $sql = "UPDATE rooms SET name=:name, text=:text, img=:img WHERE id=:id";
         $query = $pdo->prepare($sql);
         $query->execute($data);
-
         header('Location: rooms.php');
     }
 }
