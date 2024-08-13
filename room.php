@@ -82,14 +82,14 @@
     </section>
     <!-- section end -->
     <!-- footer start -->
-    <footer>
+    <footer> 
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2860.6538430520873!2d69.27251505067188!3d40.21543384102863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38b197aa2e2fb9cb%3A0xaa0157640e2f3f74!2z0KjQutC-0LvQsCAy!5e0!3m2!1sru!2s!4v1705299456588!5m2!1sru!2s" width="300" height="150" style="border:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         <ul>
-            <li><a href=""><i class="fa-solid fa-phone"></i>Telefon</a></li>
-            <li><a href="https://shkola2.bekabad.1948@bk.ru"><i class="fa-solid fa-envelope"></i>Email</a></li>
-            <li><a href="https://t.me/bekobod_2idum"><i class="fa-brands fa-telegram"></i>Telegram</a></li>
-            <li><a href=""><i class="fa-brands fa-instagram"></i>Instagram</a></li>
-            <li><a href=""><i class="fa-brands fa-facebook"></i>Facebook</a></li>
+            <li><a href=""><i class="fa-solid fa-phone"></i><p>Telefon</p></a></li>
+            <li><a href="https://shkola2.bekabad.1948@bk.ru"><i class="fa-solid fa-envelope"></i><p>Email</p></a></li>
+            <li><a href="https://t.me/bekobod_2idum"><i class="fa-brands fa-telegram"></i><p>Telegram</p></a></li>
+            <li><a href=""><i class="fa-brands fa-instagram"></i><p>Instagram</p></a></li>
+            <li><a href=""><i class="fa-brands fa-facebook"></i><p>Facebook</p></a></li>
         </ul>
     </footer>
     <!-- footer end -->
