@@ -61,12 +61,25 @@
         <div class="img">
             <img src="aboutphotos/bphoto1.jpg" alt="">
         </div>
-        <div class="text">
-            <h3>Bosh g'oya: Kamola.</h3>
-            <h3>Bosh dasturchi: Turdimuratov Abdulaziz.</h3>
-            <h3>Yangiliklar bolmi bilan ishlagan: Madiyor.</h3>  
-            <h3>Sinfxonalar bolmi bilan ishlagan: Samandar.</h3> 
-            <h3>Oqituvchi bilan ishlagan: Javohir.</h3>
+        <div class="about">
+            <div class="img">
+                <img src="teacherphotos/Эшбаев.jpg" alt="">
+            </div>
+            <div class="text">
+                <h3>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, ipsum!
+                </h3>
+            </div>
+        </div>
+        <div class="about">
+            <div class="img">
+                <img src="teacherphotos/Эшбаев.jpg" alt="">
+            </div>
+            <div class="text">
+                <h3>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, ipsum!
+                </h3>
+            </div>
         </div>
     </section>
     <!-- section end -->
