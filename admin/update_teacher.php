@@ -17,7 +17,6 @@
             'text' => strip_tags($_POST['text']),
             'img' => $img_new_name,
         ];
-        echo "<pre>"; print_r($data);echo "</pre>";
         move_uploaded_file($img_tmp_name, "../teacherphotos/" . $img_new_name);
         $pdo = new PDO("mysql:host=localhost;dbname=2-idum", 'root', 'root');
         $sql = "UPDATE teacher SET name=:name, text=:text, img=:img WHERE id=:id ";

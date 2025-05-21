@@ -171,7 +171,7 @@ $item = $query->fetch(PDO::FETCH_ASSOC);
         </a>
       </header>
       <div class="page-heading">
-        <h3>Edit Product</h3>
+        <h3>Edit Teacher</h3>
       </div>
       <div class="page-content">
         <section class="row">
@@ -185,11 +185,11 @@ $item = $query->fetch(PDO::FETCH_ASSOC);
                         <div class="col-12">
                           <div class="card">
                             <div class="card-header">
-                              <h4 class="card-title">Multiple Column</h4>
+                              <h4 class="card-title">Edit_teacher</h4>
                             </div>
                             <div class="card-content">
                               <div class="card-body">
-                                <form class="form" action="update_product.php" method="post" enctype="multipart/form-data">
+                                <form class="form" action="update_teacher.php" method="post" enctype="multipart/form-data">
                                   <div class="row">
                                     <div class="col-md-6 col-12">
                                       <div class="form-group">

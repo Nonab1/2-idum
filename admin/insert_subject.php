@@ -1,5 +1,5 @@
 <?php 
- $item = [
+$item = [
     'subject' => strip_tags($_POST['subject']),
 ];
 
